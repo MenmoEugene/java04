@@ -3,52 +3,45 @@
 
 1,获取数组中的最大值，以及最小值。
 */
-
-class extremeValue
+class ExtremeValue
 {
 	public static void main(String[] args) 
 	{
-		int arr[] = {5,1,6,4,2,8,9};
-		method_read(arr);
-		int max=Max(arr);
-		sop("max="+max);
-		int min=Min(arr);
-		sop("min="+min);
+		int[] arr={5,1,6,4,2,8,9};
+		bianli(arr);
+		int max = getMax(arr);
+		System.out.println("max="+max);
+		int min = getMin(arr);
+		System.out.println("min="+min);
 	}
-	public static int Max(int[] arr)
+
+	public static void bianli(int[] arr)
+	{
+		System.out.print("arr[]={");
+		for (int x=0; x<arr.length; x++)
+		{
+			if(x<arr.length-1)
+				System.out.print(arr[x]+",");
+			else
+				System.out.println(arr[x]+"}");
+		}
+	}
+	public static int getMax(int[] arr)
 	{
 		int max=arr[0];
-		for (int x=1; x<arr.length-1; x++)
+		for (int x=1; x<arr.length; x++)
 		{
-			if(max<arr[x])
+			if(arr[x]>max)
 				max=arr[x];
-		}
-		return max;
+		}return max;
 	}
-	public static int Min(int[] arr)
+	public static int getMin(int[] arr)
 	{
-			int min=arr[0];
-		for (int x=1; x<arr.length-1; x++)
+		int min=arr[0];
+		for (int x=1; x<arr.length; x++)
 		{
-			if(min>arr[x])
+			if(arr[x]<min)
 				min=arr[x];
-		}
-		return min;
-	}
-	public static void sop(Object obj)
-	{
-		System.out.println(obj);
-	}
-	public static void method_read(int[] arr)
-	{
-		System.out.print("arr=[");
-			
-		for(int x=0; x<arr.length; x++)
-		{
-			if(x>arr.length-2)
-				System.out.println(arr[x]+"]");
-			else
-				System.out.print(arr[x]+",");
-		}
+		}return min;
 	}
 }
